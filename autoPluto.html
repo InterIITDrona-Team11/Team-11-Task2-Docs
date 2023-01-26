@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>autoPluto module &mdash; Pluto  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>autoPluto module &mdash; Team 11  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -25,7 +25,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Pluto
+            <a href="index.html" class="icon icon-home"> Team 11
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -53,7 +53,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Pluto</a>
+          <a href="index.html">Team 11</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -83,7 +83,7 @@ the data to the drone using MSP Packets. We integrate the controls, vision and
 state estimation modules and it is an easy-to-use class.</p>
 <dl class="docutils">
 <dt>Attributes:</dt>
-<dd>debug: flag to enable prints in code for debugging. Default is False.</dd>
+<dd>DEBUG: flag to enable prints in code for debugging. Default is False.</dd>
 </dl>
 <dl class="method">
 <dt id="autoPluto.autoPluto.handler">
@@ -96,7 +96,7 @@ writing and reading is joined and code exits.</p>
 <dt id="autoPluto.autoPluto.run">
 <code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#autoPluto.autoPluto.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements the complete pipeline on the drone integrating the PID controller with pose estimation using
-the vision pipeline. Flags are setup to update the current condition of the drone, i.e. hovering, landing, etc.</p>
+the vision pipeline. Flags are setup to update the current condition of the drone, i.e., hovering, landing, etc.</p>
 </dd></dl>
 
 <dl class="method">
@@ -104,7 +104,7 @@ the vision pipeline. Flags are setup to update the current condition of the dron
 <code class="descname">takeAction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#autoPluto.autoPluto.takeAction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sending the updated control actions using MSP Packets to the drone by setting the control parameters. In case of 
 an undesired state of the drone, landing command is sent to it. For updating the states of the drone, we apply locking
-between the threads, to read the states synchronously.</p>
+between the threads, to read the states at one timestep.</p>
 </dd></dl>
 
 <dl class="method">

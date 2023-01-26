@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>plutoComms module &mdash; Pluto  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>plutoComms module &mdash; Team 11  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -25,7 +25,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Pluto
+            <a href="index.html" class="icon icon-home"> Team 11
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -53,7 +53,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Pluto</a>
+          <a href="index.html">Team 11</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -90,7 +90,7 @@ debug: a flag to enable prints in code for debugging.<br>
 mySocket: refers to the instance of socket connected to the drone at the specified IP and Port.<br>
 waitTime: variable to control sleep time after every command, so as to ensure that it is sent to the drone in the write thread.<br>
 inLoopSleepTime: variable to control sleep time in write thread, thus controlling publishing frequency.<br>
-outLoopSleepTime: variable to control sleep time in read thread, thus controlling subscribing frequency.<br>
+outLoopSleepTime: variable to control sleep time in read thread, thus controlling subscribing frequency.
 writeLoop: variable to control writing loop i.e. if we want to write data or not.<br>
 readLoop: variable to control reading loop i.e. if we want to read data or not.<br>
 outServices: Dictionary of all the out packets we request for with their type of payload values.<br>
@@ -246,16 +246,16 @@ After this the current buffer is again and again processed and the parameter rec
 <dt id="plutoComms.COMMS.updateParams">
 <code class="descname">updateParams</code><span class="sig-paren">(</span><em>out</em>, <em>idx</em><span class="sig-paren">)</span><a class="headerlink" href="#plutoComms.COMMS.updateParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Member Function to update the received parameters.<br>
-param out: Decoded Values<br>
-type out: List<br>
-param idx: value of type of payload <br>
-type idx: int</p>
+:param out: Decoded Values<br>
+:type out: List<br>
+:param idx: value of type of payload <br>
+:type idx: int</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="plutoComms.COMMS.write">
 <code class="descname">write</code><span class="sig-paren">(</span><em>commandLock</em><span class="sig-paren">)</span><a class="headerlink" href="#plutoComms.COMMS.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Member Function which is the target of the Writing Thread.<br>
+<dd><p>Member Function which is the target of the Writing Thread.
 All writing to the drone takes place in this function until we set sendData to False</p>
 <p>Before entering the loop we set the Roll and Pitch Trim, as it is to be done only once in the starting.
 In the loop we keep sending the SET_RAW_RC commands, we check if SET_COMMAND is not 0 then we send that also.
@@ -280,11 +280,10 @@ debug: a flag to enable prints in code for debugging.</dd>
 <dt id="plutoComms.MSPPacket.appendCRC">
 <code class="descname">appendCRC</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plutoComms.MSPPacket.appendCRC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructor for the MSP Packet Class.
-Initializes the header list and direction dictionary.</p>
-<dl class="docutils">
-<dt>Parameters:</dt>
-<dd>debug: to pass in the flag for debugging, by default set to False.</dd>
-</dl>
+Initializes the header list and direction dictionary.
+Parameters:</p>
+<blockquote>
+<div>debug: to pass in the flag for debugging, by default set to False.</div></blockquote>
 </dd></dl>
 
 <dl class="method">

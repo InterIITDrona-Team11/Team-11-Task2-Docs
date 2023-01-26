@@ -1,5 +1,5 @@
-vision\_pipeline2 module
-========================
+vision\_pipeline module
+=======================
 
 .. automodule:: vision_pipeline
     :members:

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>vision_pipeline module &mdash; Pluto  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>vision_pipeline module &mdash; Team 11  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -24,7 +24,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Pluto
+            <a href="index.html" class="icon icon-home"> Team 11
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -52,7 +52,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Pluto</a>
+          <a href="index.html">Team 11</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -72,10 +72,10 @@
            <div itemprop="articleBody">
              
   <div class="section" id="module-vision_pipeline">
-<span id="vision-pipeline2-module"></span><h1>vision_pipeline module<a class="headerlink" href="#module-vision_pipeline" title="Permalink to this headline">¶</a></h1>
+<span id="vision-pipeline-module"></span><h1>vision_pipeline module<a class="headerlink" href="#module-vision_pipeline" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="vision_pipeline.VisionPipeline">
-<em class="property">class </em><code class="descclassname">vision_pipeline.</code><code class="descname">VisionPipeline</code><span class="sig-paren">(</span><em>depth_res=(720</em>, <em>1280)</em>, <em>rgb_res=(720</em>, <em>1280)</em>, <em>align_to='rgb'</em>, <em>marker_size=3.75</em>, <em>marker_type=0</em>, <em>required_marker_id=1</em>, <em>debug=0</em>, <em>padding=50</em>, <em>config_file='./config.yaml'</em>, <em>fps_moving_window_size=10</em><span class="sig-paren">)</span><a class="headerlink" href="#vision_pipeline.VisionPipeline" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">vision_pipeline.</code><code class="descname">VisionPipeline</code><span class="sig-paren">(</span><em>depth_res=(720</em>, <em>1280)</em>, <em>rgb_res=(720</em>, <em>1280)</em>, <em>align_to='rgb'</em>, <em>marker_size=3.75</em>, <em>marker_type=0</em>, <em>required_marker_id=1</em>, <em>debug=0</em>, <em>padding=50</em>, <em>config_file='./vision/config.yaml'</em>, <em>fps_moving_window_size=10</em><span class="sig-paren">)</span><a class="headerlink" href="#vision_pipeline.VisionPipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This is a class for initializing Intel Pyrealsense2 D435i camera and also finding 
 depth and rgb frames along with detection of aruco marker.</p>
@@ -106,10 +106,10 @@ DEBUG: a flag to enable prints in code for debugging. Default is False.</dd>
 <dl class="method">
 <dt id="vision_pipeline.VisionPipeline.cam_init">
 <code class="descname">cam_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vision_pipeline.VisionPipeline.cam_init" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initializes camera and starts ArUco detection.
-Parameters:</p>
-<blockquote>
-<div>None</div></blockquote>
+<dd><p>Initializes camera and starts ArUco detection.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>None</dd></blockquote>
 <dl class="docutils">
 <dt>Returns:</dt>
 <dd>None</dd>
@@ -134,8 +134,8 @@ Parameters:</p>
 <dd><p>Finds depth from the estimated pose obtained from the ArUco tag.
 Parameters:</p>
 <blockquote>
-<div>depth_frame:
-marker_corners: contains the list of aruco marker corners
+<div>depth_frame: depth image from realsense<br>
+marker_corners: contains the list of aruco marker corners<br>
 kernel_size: contains the size of the kernel</div></blockquote>
 <dl class="docutils">
 <dt>Returns:</dt>
@@ -169,7 +169,7 @@ kernel_size: contains the size of the kernel</div></blockquote>
 <dd><p>Estimates the pose of the transform matrix using large ArUco tag.</p>
 <dl class="docutils">
 <dt>Parameters:</dt>
-<dd>marker_corners: list of marker corners
+<dd>marker_corners: list of marker corners<br>
 frame_of_ref: frame of reference. Default value is “camera”</dd>
 <dt>Returns:</dt>
 <dd>6-DOF pose estimate of aruco marker in world frame</dd>
@@ -291,7 +291,7 @@ tvec: contains trsnslational vectors</dd>
 <dd><p>Draws lines around the detected frames.</p>
 <dl class="docutils">
 <dt>Parameters:</dt>
-<dd>frame: RGB frame
+<dd>frame: RGB frame<br>
 marker_corners: corners of the detected aruco tag<br>
 marker_ids: ids of the detected markers</dd>
 <dt>Returns:</dt>
@@ -305,7 +305,7 @@ marker_ids: ids of the detected markers</dd>
 <dd><p>Draws lines around the detected frames.</p>
 <dl class="docutils">
 <dt>Parameters:</dt>
-<dd>frame: RGB frame
+<dd>frame: RGB frame<br>
 marker_corners: corners of the detected aruco tag</dd>
 <dt>Returns:</dt>
 <dd>frame: frame with plotted rejected markers</dd>
