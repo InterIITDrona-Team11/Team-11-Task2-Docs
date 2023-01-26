@@ -42,7 +42,7 @@
 <li class="toctree-l2"><a class="reference internal" href="kalman_filter_v2.html">kalman_filter_v2 module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">pid_pluto module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plutoComms.html">plutoComms module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vision_pipeline2.html">vision_pipeline2 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vision_pipeline.html">vision_pipeline module</a></li>
 </ul>
 </li>
 </ul>
@@ -104,8 +104,8 @@ Calculating the err_pitch_with_sse, err_roll_with_sse and err_thrust_with_sse fo
 <dt id="pid_pluto.PID.isReached">
 <code class="descname">isReached</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pid_pluto.PID.isReached" title="Permalink to this definition">¶</a></dt>
 <dd><p>Boolean function to check if the quadrotor has reached the target pose.
-When the error in velocity and position is less than a threshold value, the quadrotor is considered to have reached the target pose,
-function returns True, else False.</p>
+When the error in velocity and position is less than a threshold value, the quadrotor is considered to have reached the target pose.
+Function returns True, else False.</p>
 </dd></dl>
 
 <dl class="method">
@@ -138,13 +138,13 @@ prev_err_list: List of previous errors corresponding to thrust, roll, pitch and 
 <dl class="method">
 <dt id="pid_pluto.PID.set_target_pose">
 <code class="descname">set_target_pose</code><span class="sig-paren">(</span><em>point</em>, <em>axis</em><span class="sig-paren">)</span><a class="headerlink" href="#pid_pluto.PID.set_target_pose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updating the target position using the carrot approach.</p>
+<dd><p>Updating the target position using distance heuristic based adaptive tuning.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pid_pluto.PID.set_thrust">
 <code class="descname">set_thrust</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pid_pluto.PID.set_thrust" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculating output of the PID controller corresponding to Thrust and clipping it to the range of -250 to 250.</p>
+<dd><p>Calculating output of the PID controller corresponding to Thrust and clipping it to the range of -250 to 300.</p>
 </dd></dl>
 
 <dl class="method">

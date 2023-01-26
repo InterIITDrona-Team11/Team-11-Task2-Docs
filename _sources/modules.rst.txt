@@ -8,4 +8,4 @@ code
    kalman_filter_v2
    pid_pluto
    plutoComms
-   vision_pipeline2
+   vision_pipeline

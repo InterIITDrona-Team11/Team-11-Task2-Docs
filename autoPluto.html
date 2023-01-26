@@ -42,7 +42,7 @@
 <li class="toctree-l2"><a class="reference internal" href="kalman_filter_v2.html">kalman_filter_v2 module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pid_pluto.html">pid_pluto module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plutoComms.html">plutoComms module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vision_pipeline2.html">vision_pipeline2 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vision_pipeline.html">vision_pipeline module</a></li>
 </ul>
 </li>
 </ul>
@@ -83,7 +83,7 @@ the data to the drone using MSP Packets. We integrate the controls, vision and
 state estimation modules and it is an easy-to-use class.</p>
 <dl class="docutils">
 <dt>Attributes:</dt>
-<dd>DEBUG: flag to enable prints in code for debugging. Default is False.</dd>
+<dd>debug: flag to enable prints in code for debugging. Default is False.</dd>
 </dl>
 <dl class="method">
 <dt id="autoPluto.autoPluto.handler">
@@ -96,7 +96,7 @@ writing and reading is joined and code exits.</p>
 <dt id="autoPluto.autoPluto.run">
 <code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#autoPluto.autoPluto.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements the complete pipeline on the drone integrating the PID controller with pose estimation using
-the vision pipeline. Flags are setup to update the current condition of the drone, i.e., hovering, landing, etc.</p>
+the vision pipeline. Flags are setup to update the current condition of the drone, i.e. hovering, landing, etc.</p>
 </dd></dl>
 
 <dl class="method">
@@ -104,7 +104,7 @@ the vision pipeline. Flags are setup to update the current condition of the dron
 <code class="descname">takeAction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#autoPluto.autoPluto.takeAction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sending the updated control actions using MSP Packets to the drone by setting the control parameters. In case of 
 an undesired state of the drone, landing command is sent to it. For updating the states of the drone, we apply locking
-between the threads, to read the states at one timestep.</p>
+between the threads, to read the states synchronously.</p>
 </dd></dl>
 
 <dl class="method">
