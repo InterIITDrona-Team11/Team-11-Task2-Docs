@@ -78,16 +78,11 @@
 <dt id="pid_pluto.PID">
 <em class="property">class </em><code class="descclassname">pid_pluto.</code><code class="descname">PID</code><span class="sig-paren">(</span><em>config</em>, <em>droneNo</em><span class="sig-paren">)</span><a class="headerlink" href="#pid_pluto.PID" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>This is the implementation of the PID controller.
-The current states are the x, y, z coordinates.
-The control variables are thrust, roll, pitch in the range of 900-2100.
+<blockquote>
+<div>This is the implementation of the PID controller.
+The current states are the x, y, z coordinates.</div></blockquote>
+<p>The control variables are thrust, roll, pitch in the range of 900-2100.
 Kp, Kd and Ki are the PID gains required to tune the control variables.</p>
-<dl class="method">
-<dt id="pid_pluto.PID.aruco_not_detected">
-<code class="descname">aruco_not_detected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pid_pluto.PID.aruco_not_detected" title="Permalink to this definition">¶</a></dt>
-<dd><p>Disarming the quadrotor when ArUco marker is not detected.</p>
-</dd></dl>
-
 <dl class="method">
 <dt id="pid_pluto.PID.calc_diff_err">
 <code class="descname">calc_diff_err</code><span class="sig-paren">(</span><em>diff_frame</em>, <em>err_list</em><span class="sig-paren">)</span><a class="headerlink" href="#pid_pluto.PID.calc_diff_err" title="Permalink to this definition">¶</a></dt>
@@ -103,12 +98,6 @@ corresponding to the thrust, roll, pitch and yaw.
 Simultaneously appending the list containing prev_err_list with the current error term for thrust, roll, pitch and yaw.
 Clipping the error term to the range of -100 to 100 for thrust and -30 to 30 for roll, pitch and yaw respectively.
 Calculating the err_pitch_with_sse, err_roll_with_sse and err_thrust_with_sse for the steady state error in pitch, roll and thrust respectively.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pid_pluto.PID.failsafe_out_of_camera">
-<code class="descname">failsafe_out_of_camera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pid_pluto.PID.failsafe_out_of_camera" title="Permalink to this definition">¶</a></dt>
-<dd><p>Disarming the quadrotor when it is out of camera view.</p>
 </dd></dl>
 
 <dl class="method">
@@ -128,16 +117,16 @@ function returns True, else False.</p>
 <dl class="method">
 <dt id="pid_pluto.PID.reset">
 <code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pid_pluto.PID.reset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reset the error terms. <br>
-err_thrust: error in thrust.<br>
-err_roll: error in roll.<br>
-err_pitch: error in pitch.<br>
+<dd><p>Reset the error terms.<br>
+err_thrust: Error in thrust.<br>
+err_roll: Error in roll.<br>
+err_pitch: Error in pitch.<br>
 err_roll_with_sse: Bias term corresponding to the steady state error in roll due to external disturbances at the setpoint.<br>
 err_pitch_with_sse: Bias term corresponding to the steady state error in pitch  due to external disturbancesat the setpoint.<br>
 err_thrust_with_sse: Bias term corresponding to the steady state error in thrust due to external disturbances at the setpoint.<br>
-err_yaw: error in yaw.<br>
-prev_err: previous error.<br>
-prev_err_list: list of previous errors corresponding to thrust, roll, pitch and yaw respectively.</p>
+err_yaw: Error in yaw.<br>
+prev_err: Previous error.<br>
+prev_err_list: List of previous errors corresponding to thrust, roll, pitch and yaw respectively.</p>
 </dd></dl>
 
 <dl class="method">
@@ -156,12 +145,6 @@ prev_err_list: list of previous errors corresponding to thrust, roll, pitch and 
 <dt id="pid_pluto.PID.set_thrust">
 <code class="descname">set_thrust</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pid_pluto.PID.set_thrust" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculating output of the PID controller corresponding to Thrust and clipping it to the range of -250 to 250.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pid_pluto.PID.set_thrust_using_dynamics">
-<code class="descname">set_thrust_using_dynamics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pid_pluto.PID.set_thrust_using_dynamics" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use roll, pitch angles to keep z stable while waypoint navigation.</p>
 </dd></dl>
 
 <dl class="method">

@@ -75,7 +75,7 @@
 <span id="vision-pipeline2-module"></span><h1>vision_pipeline2 module<a class="headerlink" href="#module-vision_pipeline2" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="vision_pipeline2.VisionPipeline">
-<em class="property">class </em><code class="descclassname">vision_pipeline2.</code><code class="descname">VisionPipeline</code><span class="sig-paren">(</span><em>depth_res=(720, 1280), rgb_res=(720, 1280), align_to='rgb', marker_size=3.75, marker_type=0, required_marker_id=1, calib_file_path='../calib_data/MultiMatrix.npz', debug=0, padding=50, do_tracking=True, calib_yaw_at_start=True, imu_calib_data=[0.0, 0.0, 0.0], fps_moving_window_size=10</em><span class="sig-paren">)</span><a class="headerlink" href="#vision_pipeline2.VisionPipeline" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">vision_pipeline2.</code><code class="descname">VisionPipeline</code><span class="sig-paren">(</span><em>depth_res=(720</em>, <em>1280)</em>, <em>rgb_res=(720</em>, <em>1280)</em>, <em>align_to='rgb'</em>, <em>marker_size=3.75</em>, <em>marker_type=0</em>, <em>required_marker_id=1</em>, <em>debug=0</em>, <em>padding=50</em>, <em>config_file='./config.yaml'</em>, <em>fps_moving_window_size=10</em><span class="sig-paren">)</span><a class="headerlink" href="#vision_pipeline2.VisionPipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This is a class for initializing Intel Pyrealsense2 D435i camera and also finding 
 depth and rgb frames along with detection of aruco marker.</p>
@@ -84,10 +84,10 @@ depth and rgb frames along with detection of aruco marker.</p>
 <dd>depth_res: defines the depth resolution. Default is (720, 1080).<br>
 rgb_res: defines the rgb resolution. Default is (720, 1080).<br>
 align_to: defines frame to which alignment must be done. Default is “rgb”.<br>
-marker_size: defines the marker size of the ArUco tag. Default is 3.75.<br>
+marker_size: defines the marker size of the aruco tag. Default is 3.75.<br>
 marker_type: defines the aruco marker type. Default is DICT_4X4_50.<br>
-marker_dict: gets the required ArUco dictionary.<br>
-require_marker_id: defines the marker id of the ArUco tag placed on the drone.<br>
+marker_dict: gets the required aruco dictionary.<br>
+require_marker_id: defines the marker id of the aruco tag placed on the drone.<br>
 calib_file_path: defines the path for camera calibration.<br>
 DEBUG: a flag to enable prints in code for debugging. Default is False.</dd>
 </dl>
@@ -106,10 +106,11 @@ DEBUG: a flag to enable prints in code for debugging. Default is False.</dd>
 <dl class="method">
 <dt id="vision_pipeline2.VisionPipeline.cam_init">
 <code class="descname">cam_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vision_pipeline2.VisionPipeline.cam_init" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initializes camera and starts ArUco detection.</p>
+<dd><p>Initializes camera and starts ArUco detection.
+Parameters:</p>
+<blockquote>
+<div>None</div></blockquote>
 <dl class="docutils">
-<dt>Parameters:</dt>
-<dd>None</dd>
 <dt>Returns:</dt>
 <dd>None</dd>
 </dl>
@@ -130,12 +131,13 @@ DEBUG: a flag to enable prints in code for debugging. Default is False.</dd>
 <dl class="method">
 <dt id="vision_pipeline2.VisionPipeline.depth_from_marker">
 <code class="descname">depth_from_marker</code><span class="sig-paren">(</span><em>depth_frame</em>, <em>marker_corners</em>, <em>kernel_size=1</em><span class="sig-paren">)</span><a class="headerlink" href="#vision_pipeline2.VisionPipeline.depth_from_marker" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds depth from the estimated pose obtained from the ArUco tag.</p>
+<dd><p>Finds depth from the estimated pose obtained from the ArUco tag.
+Parameters:</p>
+<blockquote>
+<div>depth_frame:
+marker_corners: contains the list of aruco marker corners
+kernel_size: contains the size of the kernel</div></blockquote>
 <dl class="docutils">
-<dt>Parameters:</dt>
-<dd>depth_frame: depth frame from Realsense<br>
-marker_corners: contains the list of aruco marker corners<br>
-kernel_size: contains the size of the kernel</dd>
 <dt>Returns:</dt>
 <dd>depths: depth of the point filtered using median filter</dd>
 </dl>
@@ -167,7 +169,7 @@ kernel_size: contains the size of the kernel</dd>
 <dd><p>Estimates the pose of the transform matrix using large ArUco tag.</p>
 <dl class="docutils">
 <dt>Parameters:</dt>
-<dd>marker_corners: list of marker corners<br>
+<dd>marker_corners: list of marker corners
 frame_of_ref: frame of reference. Default value is “camera”</dd>
 <dt>Returns:</dt>
 <dd>6-DOF pose estimate of aruco marker in world frame</dd>
@@ -264,7 +266,7 @@ frame_of_ref: frame of reference. Default value is “camera”</dd>
 <dd><p>Creates the transormation matrix using the rotation and translational vectors.</p>
 <dl class="docutils">
 <dt>Parameters:</dt>
-<dd>rvec: contains rotational vectors<br>
+<dd>rvec: contains rotational vectors
 tvec: contains trsnslational vectors</dd>
 <dt>Returns:</dt>
 <dd>tf: transformation matrix for the camera</dd>
@@ -289,8 +291,8 @@ tvec: contains trsnslational vectors</dd>
 <dd><p>Draws lines around the detected frames.</p>
 <dl class="docutils">
 <dt>Parameters:</dt>
-<dd>frame: RGB frame<br>
-marker_corners: corners of the detected ArUco tag<br>
+<dd>frame: RGB frame
+marker_corners: corners of the detected aruco tag<br>
 marker_ids: ids of the detected markers</dd>
 <dt>Returns:</dt>
 <dd>frame with plotted markers</dd>

@@ -79,8 +79,8 @@
 <em class="property">class </em><code class="descclassname">plutoComms.</code><code class="descname">COMMS</code><span class="sig-paren">(</span><em>IP='192.168.4.1'</em>, <em>Port=23</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="headerlink" href="#plutoComms.COMMS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This is the class for all communication with the pluto drone.</p>
-<p>It has two threads running in parallel:
-1) The write Thread: which sends data to the drone based on the values of the parameter to be set and requests to be made.
+<p>It has two threads running in parallel:<br>
+1) The write Thread: which sends data to the drone based on the values of the parameter to be set and requests to be made.<br>
 2) The read Thread: which reads data from the drone and updates the parameters received based on the requests sent.</p>
 <dl class="docutils">
 <dt>Attribute:</dt>
@@ -193,13 +193,12 @@ paramReceived: Dictionary of parameters received from the OUT Packets.</dd>
 <code class="descname">processBuffer</code><span class="sig-paren">(</span><em>buff</em>, <em>funDebug=False</em><span class="sig-paren">)</span><a class="headerlink" href="#plutoComms.COMMS.processBuffer" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function processes the current buffer and return the list of decoded values as out list, 
 the OUT Packet payload corresponding to which the values are and the remaining buffer.
-Returns empty out list and 0 as payload if buffer does not contain the full message.</p>
-<p>In case when garbage is received slice the buffer to the start of the next message by searching for header.</p>
+Returns empty out list and 0 as payload if buffer does not contain the full message</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="plutoComms.COMMS.read">
-<code class="descname">read</code><span class="sig-paren">(</span><em>IMUQueue</em><span class="sig-paren">)</span><a class="headerlink" href="#plutoComms.COMMS.read" title="Permalink to this definition">¶</a></dt>
+<code class="descname">read</code><span class="sig-paren">(</span><em>IMUQueue</em>, <em>imuLock</em><span class="sig-paren">)</span><a class="headerlink" href="#plutoComms.COMMS.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Member Function which is target function to the Reading Thread.
 All the data sent by the drone is received in this function.</p>
 <p>In the loop we wait for 2 seconds max, if we do not receive any data on the socket then we break out of the loop.
@@ -228,7 +227,7 @@ After this the current buffer is again and again processed and the parameter rec
 <dl class="method">
 <dt id="plutoComms.COMMS.rightYaw">
 <code class="descname">rightYaw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plutoComms.COMMS.rightYaw" title="Permalink to this definition">¶</a></dt>
-<dd><p>Member Function to increase yaw so that the drone rotates right.</p>
+<dd><p>Member Function to decrease yaw so that the drone rotates right.</p>
 </dd></dl>
 
 <dl class="method">
@@ -246,7 +245,7 @@ After this the current buffer is again and again processed and the parameter rec
 <dl class="method">
 <dt id="plutoComms.COMMS.updateParams">
 <code class="descname">updateParams</code><span class="sig-paren">(</span><em>out</em>, <em>idx</em><span class="sig-paren">)</span><a class="headerlink" href="#plutoComms.COMMS.updateParams" title="Permalink to this definition">¶</a></dt>
-<dd><p>Member Function to update the received parameters.
+<dd><p>Member Function to update the received parameters.<br>
 :param out: Decoded Values<br>
 :type out: List<br>
 :param idx: value of type of payload <br>
@@ -255,8 +254,8 @@ After this the current buffer is again and again processed and the parameter rec
 
 <dl class="method">
 <dt id="plutoComms.COMMS.write">
-<code class="descname">write</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plutoComms.COMMS.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Member Function which is the target of the Writing Thread.
+<code class="descname">write</code><span class="sig-paren">(</span><em>commandLock</em><span class="sig-paren">)</span><a class="headerlink" href="#plutoComms.COMMS.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Member Function which is the target of the Writing Thread.<br>
 All writing to the drone takes place in this function until we set sendData to False</p>
 <p>Before entering the loop we set the Roll and Pitch Trim, as it is to be done only once in the starting.
 In the loop we keep sending the SET_RAW_RC commands, we check if SET_COMMAND is not 0 then we send that also.
@@ -280,11 +279,11 @@ debug: a flag to enable prints in code for debugging.</dd>
 <dl class="method">
 <dt id="plutoComms.MSPPacket.appendCRC">
 <code class="descname">appendCRC</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plutoComms.MSPPacket.appendCRC" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a Member Function to append CRC at the end of message.
-This is to check the integrity of the packet.</p>
+<dd><p>Constructor for the MSP Packet Class.
+Initializes the header list and direction dictionary.</p>
 <dl class="docutils">
-<dt>Parameter:</dt>
-<dd>None</dd>
+<dt>Parameters:</dt>
+<dd>debug: to pass in the flag for debugging, by default set to False.</dd>
 </dl>
 </dd></dl>
 
